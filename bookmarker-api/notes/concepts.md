@@ -5,23 +5,48 @@
 
 1.  Prefer construction injection with lombok's ```@RequiredArgsConstructor``` over  field injection with spring's  ```@Autowired```
 
-    [stackoverflow: constructor injection, setter injection and injection by reflection (autowired)](https://stackoverflow.com/a/39892204)    
-
-    [stackoverflow: spring autowire on properties vs constructor](https://stackoverflow.com/a/40620318)
-
-    [why field injection is evil?](https://odrotbohm.de/2013/11/why-field-injection-is-evil/)
 
 
-    summary:
+[What is Spring Framework ? An Unorthodox Guide ](https://www.marcobehler.com/guides/spring-framework):
+
+In "Constructor Injection & Autowired Revisited" Section
+ 
+  With newer Spring versions, Spring is actually smart enough to
+  inject these dependencies without an explicit @Autowired annotation in the constructor.
+  So this would also work.
+
+  ```java
+
+     @Component
+     public class UserDao {
+
+         private DataSource dataSource;
+
+         public UserDao(DataSource dataSource) {
+             this.dataSource = dataSource;
+         }
+
+     }
+```
+             
+
+ [Stackoverflow: Constructor injection, Setter injection and Injection by reflection (autowired)](https://stackoverflow.com/a/39892204)    
+
+ [Stackoverflow: Spring Autowire on properties vs constructor](https://stackoverflow.com/a/40620318)
+
+ [Why field injection is evil?](https://odrotbohm.de/2013/11/why-field-injection-is-evil/)
+
+
+ Summary: <br>
               1. Construction injection allows you to create dependencies as final <br>
-              2. Supports immutable objects
+              2. Supports immutable objects <br>
               3. Makes setting up POJOs for unit-tests easier
 
 <br>
 
 
 
-2. DTO vs Entities:  Entity should be decoupled from its corresponding request / response payload model
+2. DTO vs Entities:  "Entity should be decoupled from its corresponding request / response payload model"
 
                      The key reason for this is that the request / response payload may 
                      may need to present properties differently which can 
@@ -43,9 +68,59 @@
 
                      
 
-                      
+3.  Spring Testing
+<br>
 
-3. Pom libraries: 
+ *  "You don't need Spring to <em>UNIT TEST</em>" (think @SpringBootTest / @ExtendWith(SpringExtension.class) )
+     if you "Create Testable Spring Bean"
+
+    [reflectoring.io/unit-testing-spring-boot](https://reflectoring.io/unit-testing-spring-boot/)
+
+ <br>
+
+ * "The <em>@TestConfiguration</em> annotation is a useful aid for writing unit tests of 
+    components in a Spring Boot application. 
+
+    It allows us to define additional beans
+    or override existing beans in the Spring application context to add specialized
+    configurations for testing." 
+    
+    <br>[reflectoring.io/spring-boot-testconfiguration](https://reflectoring.io/spring-boot-testconfiguration/)
+
+    [Quirks of @TestConfiguration | Siva Labs ](https://www.sivalabs.in/quirks-of-spring-testconfiguration/)
+
+ <br>
+
+  * "Use Test slices to prevent loading the entire application context and to speedup your tests"
+
+     <br>[reflectoring.io/spring-boot-test/](https://reflectoring.io/spring-boot-test/)
+
+ <br>
+
+  * More Annotations to explore / practice: <br> 
+             ```
+                 @PropertySource, @Import, @ActiveProfiles
+             ```
+             <br>
+             ```
+                @Configuration(<em>proxyBeanMethod=false</em>), @Value
+             ```
+             <br> 
+             ```
+                 @Mock vs @MockBean vs @InjectMock 
+             ```
+        
+    <br><b>Note</b>: many annotations can be customized with attributes, this can be handy<br> 
+                     for more granularity, better control and faster tests<br>
+                 ex: ```@SpringBootTest(properties = { "example.firstProperty=annotation" })```
+                      <br>
+                      ```
+                        @Configuration(<em>proxyBeanMethod=false</em>), @Value
+                       ```
+
+  * 
+
+4. Pom libraries: 
  
 | s.no | artefactId                          | groupId                   | scope   | optional |
 |------|-------------------------------------|---------------------------|---------|----------|
@@ -238,23 +313,32 @@ To run the image as a container
 
 #### References:
 
-1. [Markdown Extended Syntax](https://www.markdownguide.org/extended-syntax/)
+1. [What is Spring Framework ? An Unorthodox guide](https://www.marcobehler.com/guides/spring-framework)
 
-2. [Best way to log SQL statements with Spring Boot](https://vladmihalcea.com/log-sql-spring-boot/)
+2. Spring Testing:
 
-3. [Spring Data JPA](https://stackoverflow.com/questions/42135114/how-does-spring-jpa-hibernate-ddl-auto-property-exactly-work-in-spring)
+* [reflectoring.io/unit-testing-spring-boot](https://reflectoring.io/unit-testing-spring-boot/)<br>
+* [reflectoring.io/spring-boot-test/](https://reflectoring.io/spring-boot-test/)<br>
+* [reflectoring.io/spring-boot-testconfiguration](https://reflectoring.io/spring-boot-testconfiguration/)<br>
+* [Quirks of @TestConfiguration | Siva Labs ](https://www.sivalabs.in/quirks-of-spring-testconfiguration/)<br>
+* [Spring Boot Tips : Part 4 - How to write Unit, Slice & Integration Tests in SpringBoot Applications](https://www.youtube.com/watch?v=NzMIKpYpiZ4)<br>
+* [Spring Boot Tips : Part 5 - Integration Testing using Testcontainers](https://www.youtube.com/watch?v=osw9dz2ZhhQ&list=PLuNxlOYbv61jFFX2ARQKnBgkMF6DvEEic&index=5)
+* [Spring Boot Testing Web Layer Guide](https://spring.io/guides/gs/testing-web/)
 
-4. [Spring Data JPA Projection documentation](https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#projections):
-     interface-based, class-based, dynamic projections
+3. [Spring Boot Tips](https://www.youtube.com/playlist?list=PLuNxlOYbv61jFFX2ARQKnBgkMF6DvEEic)
 
-5. For hibernate related references refer to end of [Spring Boot + Kubernetes Tutorial Series - Part 5 : Using Spring Data JPA DTO Projections
+4. [Spring boot + k8s](https://www.youtube.com/playlist?list=PLuNxlOYbv61h66_QlcjCEkVAj6RdeplJJ)
+
+)
+
+5. [Best way to log SQL statements with Spring Boot](https://vladmihalcea.com/log-sql-spring-boot/)
+
+6. [Spring Data JPA](https://stackoverflow.com/questions/42135114/how-does-spring-jpa-hibernate-ddl-auto-property-exactly-work-in-spring)
+
+7. [Spring Data JPA Projection documentation](https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#projections):
+   interface-based, class-based, dynamic projections
+
+8. For hibernate related references refer to end of [Spring Boot + Kubernetes Tutorial Series - Part 5 : Using Spring Data JPA DTO Projections
    ](https://www.youtube.com/watch?v=SMn-YezGkdA&list=PLuNxlOYbv61h66_QlcjCEkVAj6RdeplJJ&index=6)
 
-6. [Spring Boot Tips : Part 4 - How to write Unit, Slice & Integration Tests in SpringBoot Applications](https://www.youtube.com/watch?v=NzMIKpYpiZ4)
-   [Spring Boot Tips : Part 5 - Integration Testing using Testcontainers](https://www.youtube.com/watch?v=osw9dz2ZhhQ&list=PLuNxlOYbv61jFFX2ARQKnBgkMF6DvEEic&index=5)
-
-7. [Spring Boot Tips](https://www.youtube.com/playlist?list=PLuNxlOYbv61jFFX2ARQKnBgkMF6DvEEic)
-
-8. [Spring boot + k8s](https://www.youtube.com/playlist?list=PLuNxlOYbv61h66_QlcjCEkVAj6RdeplJJ)
-
-9. [Spring Boot Testing Web Layer Guide](https://spring.io/guides/gs/testing-web/)
+9. [Markdown Extended Syntax](https://www.markdownguide.org/extended-syntax/)
