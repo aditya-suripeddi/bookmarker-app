@@ -37,7 +37,7 @@ In "Constructor Injection & Autowired Revisited" Section
  [Why field injection is evil?](https://odrotbohm.de/2013/11/why-field-injection-is-evil/)
 
 
- Summary: <br>
+ Summary: <br><br>
               1. Construction injection allows you to create dependencies as final <br>
               2. Supports immutable objects <br>
               3. Makes setting up POJOs for unit-tests easier
@@ -66,9 +66,25 @@ In "Constructor Injection & Autowired Revisited" Section
                      This discussion is entry point for Spring DTO projections, which spring provides to
                      handle concerns discussed above
 
-                     
+
+<br>                     
 
 3.  Spring Testing
+<br>
+<br>
+ *  The `spring-boot-starter-test`  “Starter” (in the test scope) contains the following provided libraries:
+<br><br>
+
+| library                        | remark                                                                  |
+|--------------------------------|-------------------------------------------------------------------------|
+| JUnit 5                        | The de-facto standard for unit testing Java applications                |
+| Spring Test & Spring Boot Test | Utilities and integration test support for Spring Boot applications.    |
+| AssertJ                        | A fluent assertion library.                                             |
+| Hamcrest                       | A library of matcher objects (also known as constraints or predicates). |
+| Mockito                        | A Java mocking framework.                                               |
+| JSONassert                     | An assertion library for JSON.                                          |
+| JsonPath                       | XPath for JSON.                                                         |
+
 <br>
 
  *  "You don't need Spring to <em>UNIT TEST</em>" (think @SpringBootTest / @ExtendWith(SpringExtension.class) )
@@ -97,28 +113,27 @@ In "Constructor Injection & Autowired Revisited" Section
 
  <br>
 
-  * More Annotations to explore / practice: <br> 
-             ```
-                 @PropertySource, @Import, @ActiveProfiles
-             ```
-             <br>
-             ```
-                @Configuration(<em>proxyBeanMethod=false</em>), @Value
-             ```
-             <br> 
-             ```
-                 @Mock vs @MockBean vs @InjectMock 
-             ```
+  * More Annotations to explore / practice: 
+    * ```@PropertySource, @Import, @ActiveProfiles```
+    * ```@Configuration(<em>proxyBeanMethod=false</em>), @Value```
+    * ```@Mock vs @MockBean vs @InjectMock``` 
         
-    <br><b>Note</b>: many annotations can be customized with attributes, this can be handy<br> 
-                     for more granularity, better control and faster tests<br>
-                 ex: ```@SpringBootTest(properties = { "example.firstProperty=annotation" })```
-                      <br>
-                      ```
-                        @Configuration(<em>proxyBeanMethod=false</em>), @Value
-                       ```
+      <br><b>Note</b>: many annotations can be customized with attributes, this can be handy<br> 
+                       for more granularity, better control and faster tests<br>
+                 <br>  ex: 
+    ```@SpringBootTest(properties = { "example.firstProperty=annotation" })```
+                        <br>
+    ```@Configuration(<em>proxyBeanMethod=false</em>), @Value ```
+     <br><br>
+  * Also Refer:
+    <br><br>
+    [Spring Boot Tips : Part 4 - How to write Unit, Slice & Integration Tests in SpringBoot Applications](https://www.youtube.com/watch?v=NzMIKpYpiZ4)
+    <br>
+    [Spring Boot Tips : Part 5 - Integration Testing using Testcontainers](https://www.youtube.com/watch?v=osw9dz2ZhhQ&list=PLuNxlOYbv61jFFX2ARQKnBgkMF6DvEEic&index=5)
+    <br>
+    [Spring Boot Testing Web Layer Guide](https://spring.io/guides/gs/testing-web/)
+    <br><br>
 
-  * 
 
 4. Pom libraries: 
  
@@ -165,12 +180,7 @@ In "Constructor Injection & Autowired Revisited" Section
  ```
 
 
-<br>
-
-4. `spring-boot-starter-test` pulls common dependencies for testing like ```junit5, mockito, json-path``` transitively
-
-
-<br>
+<br><br>
 
 5. Ways to create Docker image of spring boot app: 
       ```
@@ -283,15 +293,8 @@ To run the image as a container
   $ docker run -p 8080:8080 aditya0491/bookmarker-api 
 ```
 
-
-6. [Spring Boot Testing Web Layer Guide](https://spring.io/guides/gs/testing-web/)
-
-   [Spring Boot Tips : Part 4 - How to write Unit, Slice & Integration Tests in SpringBoot Applications](https://www.youtube.com/watch?v=NzMIKpYpiZ4)
-
-   [Spring Boot Tips : Part 5 - Integration Testing using Testcontainers](https://www.youtube.com/watch?v=osw9dz2ZhhQ&list=PLuNxlOYbv61jFFX2ARQKnBgkMF6DvEEic&index=5)
-
-
-7. Continuous Integration: 
+<br><br>
+6. Continuous Integration: 
              
                   1. Run tests                                        }  on build server
                   2. Code Quality Checks (SonarQube, CheckStyle)      }
@@ -309,27 +312,47 @@ To run the image as a container
                 1. Run tests
                 2. Build docker image and push to docker-hub
 
+    Refer comments in <em>bookmarker-api/.github/workflows/build.yml</em>
+   <br><br>
+
+7. Rest API guidelines overview: 
+ 
+   ```
+         HTTP METHOD            URL                              FUNCIONALITY
+   
+     1.    GET               /api/bookmarks                      <- get all
+     2.    GET               /api/bookmarks/{id}                 <- get by id
+     3.    GET               /api/bookmarks?query=k&page=2       <- search
+     4.    POST              /api/bookmarks                      <- create
+     5.    *PUT              /api/bookmarks/{id}                 <- replace by id 
+     6.    *PATCH            /api/bookmarks/{id}                 <- partial update by id
+     7.    DELETE            /api/bookmarks/{id}                 <- delete by id
+   ```
 
 
+
+<br><br>
 #### References:
+<br>
 
 1. [What is Spring Framework ? An Unorthodox guide](https://www.marcobehler.com/guides/spring-framework)
-
+   <br><br>
 2. Spring Testing:
 
-* [reflectoring.io/unit-testing-spring-boot](https://reflectoring.io/unit-testing-spring-boot/)<br>
-* [reflectoring.io/spring-boot-test/](https://reflectoring.io/spring-boot-test/)<br>
-* [reflectoring.io/spring-boot-testconfiguration](https://reflectoring.io/spring-boot-testconfiguration/)<br>
-* [Quirks of @TestConfiguration | Siva Labs ](https://www.sivalabs.in/quirks-of-spring-testconfiguration/)<br>
-* [Spring Boot Tips : Part 4 - How to write Unit, Slice & Integration Tests in SpringBoot Applications](https://www.youtube.com/watch?v=NzMIKpYpiZ4)<br>
-* [Spring Boot Tips : Part 5 - Integration Testing using Testcontainers](https://www.youtube.com/watch?v=osw9dz2ZhhQ&list=PLuNxlOYbv61jFFX2ARQKnBgkMF6DvEEic&index=5)
-* [Spring Boot Testing Web Layer Guide](https://spring.io/guides/gs/testing-web/)
-
+   * [reflectoring.io/unit-testing-spring-boot](https://reflectoring.io/unit-testing-spring-boot/)<br>
+   * [reflectoring.io/spring-boot-test/](https://reflectoring.io/spring-boot-test/)<br>
+   * [reflectoring.io/spring-boot-testconfiguration](https://reflectoring.io/spring-boot-testconfiguration/)<br>
+   * [Quirks of @TestConfiguration | Siva Labs ](https://www.sivalabs.in/quirks-of-spring-testconfiguration/)<br>
+   * [Spring Boot Tips : Part 4 - How to write Unit, Slice & Integration Tests in SpringBoot Applications](https://www.youtube.com/watch?v=NzMIKpYpiZ4)<br>
+   * [Spring Boot Tips : Part 5 - Integration Testing using Testcontainers](https://www.youtube.com/watch?v=osw9dz2ZhhQ&list=PLuNxlOYbv61jFFX2ARQKnBgkMF6DvEEic&index=5)
+   * [Spring Boot Testing Web Layer Guide](https://spring.io/guides/gs/testing-web/)
+<br><br>
+   
 3. [Spring Boot Tips](https://www.youtube.com/playlist?list=PLuNxlOYbv61jFFX2ARQKnBgkMF6DvEEic)
 
 4. [Spring boot + k8s](https://www.youtube.com/playlist?list=PLuNxlOYbv61h66_QlcjCEkVAj6RdeplJJ)
 
-)
+<br><br>
 
 5. [Best way to log SQL statements with Spring Boot](https://vladmihalcea.com/log-sql-spring-boot/)
 
@@ -341,4 +364,5 @@ To run the image as a container
 8. For hibernate related references refer to end of [Spring Boot + Kubernetes Tutorial Series - Part 5 : Using Spring Data JPA DTO Projections
    ](https://www.youtube.com/watch?v=SMn-YezGkdA&list=PLuNxlOYbv61h66_QlcjCEkVAj6RdeplJJ&index=6)
 
+<br><br>
 9. [Markdown Extended Syntax](https://www.markdownguide.org/extended-syntax/)
