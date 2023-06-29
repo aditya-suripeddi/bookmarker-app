@@ -8,7 +8,12 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.data.domain.Page;
 
-
+/**
+ *  BookmarksDTO is data transfer object that
+ *  encapsulates following information:
+ *     a. bookmarks on a given page
+ *     b. pagination related metadata: total bookmarks, current page number
+ */
 @Getter
 @Setter
 public class BookmarksDTO {

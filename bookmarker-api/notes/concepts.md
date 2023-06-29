@@ -137,20 +137,20 @@ In "Constructor Injection & Autowired Revisited" Section
 
 4. Pom libraries: 
  
-| s.no | artefactId                          | groupId                   | scope   | optional |
-|------|-------------------------------------|---------------------------|---------|----------|
-| 1.   | spring-boot-starter-data-jpa        | org.springframework.boot  |         |          |              
-| 2.   | spring-boot-starter-validation      | org.springframework.boot  |         |          |
-| 3.   | spring-boot-starter-web             | org.springframework.boot  |         |          |
-| 4.   | flyway-core                         | org.flywaydb              |         |          |           
-| 5.   | spring-boot-dev-tools               | org.spring.framework.boot | runtime |  true    |        
-| 6.   | h2                                  | com.h2database            | runtime |          |  
-| 7.   | postgresql                          | org.postgresql            | runtime |          |  
-| 8.   | spring-boot-configuration-processor | org.springframework.boot  |         |  true    |
-| 9.   | lombok                              | org.projectlombok         |         |  true    |
-| 10.  | spring-boot-starter-test            | org.springframework.boot  | test    |          |
-| 11.  | junit-jupiter                       | org.testcontainers        | test    |          |
-| 12.  | postgresql                          | org.testcontainers        | test    |          |
+| s.no | artefactId                          | groupId                   | scope   | optional | purpose                                                                                                          |
+|------|-------------------------------------|---------------------------|---------|----------|------------------------------------------------------------------------------------------------------------------|
+| 1.   | spring-boot-starter-data-jpa        | org.springframework.boot  |         |          | Starter for using Spring Data JPA with Hibernate|     
+| 2.   | spring-boot-starter-validation      | org.springframework.boot  |         |          | Bean Validation with Hibernate validator                                                                         |
+| 3.   | spring-boot-starter-web             | org.springframework.boot  |         |          | Build web, including RESTful apps using Spring MVC. Uses Tomcat as default embedded conatiner                    |
+| 4.   | flyway-core                         | org.flywaydb              |         |          | Flyway is an open-source database migration tool that strongly favors simplicity and convention over configuration |
+| 5.   | spring-boot-dev-tools               | org.spring.framework.boot | runtime |  true    | Provides fast app restarts, LiveReload and configurations for enhanced developer experience                      |
+| 6.   | h2                                  | com.h2database            | runtime |          |                                                                                                                  | 
+| 7.   | postgresql                          | org.postgresql            | runtime |          |                                                                                                                  | 
+| 8.   | spring-boot-configuration-processor | org.springframework.boot  |         |  true    | Spring Boot Configuration Annotation Processor|
+| 9.   | lombok                              | org.projectlombok         |         |  true    | Java annotation library that helps to reduce boilerplate code                                                    |
+| 10.  | spring-boot-starter-test            | org.springframework.boot  | test    |          | tarter for testing Spring Boot applications with libraries including </em>JUnit Jupiter, Hamcrest and Mockito</em> |  
+| 11.  | junit-jupiter                       | org.testcontainers        | test    |          | Junit Jupiter Extension (Integration test platform/framework) by Testcontainers (read the blog)                  |
+| 12.  | postgresql                          | org.testcontainers        | test    |          | // for loading postgresql container (JDBC support page)                                                          | 
 
 
  plugins
@@ -328,6 +328,17 @@ To run the image as a container
      6.    *PATCH            /api/bookmarks/{id}                 <- partial update by id
      7.    DELETE            /api/bookmarks/{id}                 <- delete by id
    ```
+
+
+8. Spring DATA JPA Projections: 
+
+              More often than not, we don't need all the properties of the returned object 
+
+              In such cases, we might want to retrieve data as objects of customized types.
+              These types reflect partial views of the root class, containing only the properties we care about.
+              This is where projections come in handy.
+
+              https://www.baeldung.com/spring-data-jpa-projections
 
 
 

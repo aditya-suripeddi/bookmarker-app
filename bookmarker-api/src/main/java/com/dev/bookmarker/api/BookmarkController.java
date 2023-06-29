@@ -17,6 +17,12 @@ public class BookmarkController {
 
     private final BookmarkService bookmarkService;
 
+    /**
+     *
+     * @param  page : Page number requested
+     *
+     * @return Bookmarks on the requested page with metadata
+     */
     @GetMapping
     public BookmarksDTO getBookmarks(@RequestParam(name = "page", defaultValue = "1") Integer page) {
         return bookmarkService.getBookmarks(page);

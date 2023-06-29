@@ -7,7 +7,10 @@ import lombok.Setter;
 
 import java.time.Instant;
 
-
+/**
+ *   BookmarkDTO is the data transfer object corresponding
+ *   to Bookmark
+ */
 @Getter
 @Setter
 @NoArgsConstructor

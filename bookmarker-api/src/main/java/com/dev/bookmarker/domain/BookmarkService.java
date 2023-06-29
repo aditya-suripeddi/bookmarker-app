@@ -22,8 +22,8 @@ public class BookmarkService {
     private final BookmarkMapper bookmarkMapper;
 
 
-    @Transactional(readOnly = true) // tell hibernate that we are only reading data and not doing data manipulations
-                                    // so that it can bring in some optimizations
+    @Transactional(readOnly = true) // tell hibernate that there is no data modifications happening
+                                    // so that it does not do dirty checking which saves some performance
     public BookmarksDTO getBookmarks(Integer page) {
 
         int pageNo = Math.max(page - 1, 0) ;
