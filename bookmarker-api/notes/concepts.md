@@ -184,11 +184,21 @@ In "Constructor Injection & Autowired Revisited" Section
 
 5. Ways to create Docker image of spring boot app: 
       ```
-           1. Dockerfile using fat-jar
-           2. Mutlistage Dockerfile with layers
-           3. Spring boot maven / gradle plugin using Buildpacks
-           4. Jib Maven / Gradle plugin 
+       Using Dockefile: 
+   
+           1. Dockerfile using fat-jar // Dockerfile
+           2. Mutlistage Dockerfile with layers // Dockerfile.layered 
+   
+       Plugins/BuildPacks(without a Dockerfile) make the container for you: 
+   
+           3. Spring boot maven or gradle plugin using Buildpacks // spring-boot-maven plugin which also uses layering 
+           4. Jib Maven / Gradle plugin  
       ```
+
+   Refer:  [Creating Docker Image](https://www.baeldung.com/spring-boot-docker-images#traditional-docker-builds) <br>
+           [Reusing Docker Layers](https://www.baeldung.com/docker-layers-spring-boot) for steps 1 and 2 
+           [Spring Boot Maven Plugin | Packing OCI Images](https://docs.spring.io/spring-boot/docs/current/maven-plugin/reference/htmlsingle/#build-image)
+           [What is a BuildPack ?](https://youtu.be/d_L_AZyocWA) for steps 3 and 4
 
    Command to create docker image using spring boot maven plugin: 
 

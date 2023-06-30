@@ -1,3 +1,11 @@
+
+# Refer this blog https://www.baeldung.com/docker-layers-spring-boot
+# to understand the layers spring-boot support from less-likely to change at bottom
+# to more likely to change as you go up, to minimize docker cache busting for faster
+# build times (time to create your spring boot application container when application
+# src code changes )
+
+
 ### the first stage of our build will extract layers
 
 FROM eclipse-temurin:17-jre-focal as builder
