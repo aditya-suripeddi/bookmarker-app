@@ -19,6 +19,7 @@
         <jib-maven-plugin.version>3.2.1</jib-maven-plugin.version>
         <dockerUserName>aditya0491</dockerUserName>
         <dockerImageName>${dockerUserName}/${project.artifactId}</dockerImageName>
+        <problem-spring-web.version>0.27.0</problem-spring-web.version>
     </properties>
     <dependencies>
         <dependency>
@@ -77,6 +78,11 @@
             <groupId>org.testcontainers</groupId>
             <artifactId>postgresql</artifactId>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.zalando</groupId>
+            <artifactId>problem-spring-web-starter</artifactId>
+            <version>${problem-spring-web.version}</version>
         </dependency>
     </dependencies>
     <dependencyManagement>

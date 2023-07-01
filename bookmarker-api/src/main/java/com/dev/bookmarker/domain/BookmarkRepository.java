@@ -69,4 +69,33 @@ public interface BookmarkRepository extends JpaRepository<Bookmark, Long> {
     @Query("SELECT new com.dev.bookmarker.domain.BookmarkDTO(b.id, b.title, b.url, b.createdAt) from Bookmark b")
     Page<BookmarkDTO> getBookmarks(Pageable pageable);
 
+
+
+    // Note: we use NAMED PARAMETER ':query' in the search query below:
+    @Query("""
+               SELECT
+                      new com.dev.bookmarker.domain.BookmarkDTO(b.id, b.title, b.url, b.createdAt)
+               FROM
+                      Bookmark b
+               WHERE
+                      lower(b.title) LIKE lower(concat('%', :query, '%'))
+           """)
+    Page<BookmarkDTO> searchBookmarks(String query, Pageable pageable);
+
+    //
+    // intellij ultimate edition (ide) shows suggestions
+    // of various subject keyword methods (with predicates and modifiers)
+    // supported by spring data jpa respositories
+    //
+    // Browse the following tables:
+    //
+    //         Query Subject Keywords Table
+    //         Query Predicate Keywords Table
+    //         Query Prdicate Modifier Keywords Table
+    //
+    // at  https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#repository-query-keywords
+    //
+    //Page<BookmarkDTO> findByTitleContainsIgnoreCase(String query, Pageable pageable);
+
+    Page<BookmarkVM> findByTitleContainsIgnoreCase(String query, Pageable pageable);
 }

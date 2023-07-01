@@ -137,21 +137,21 @@ In "Constructor Injection & Autowired Revisited" Section
 
 4. Pom libraries: 
  
-| s.no | artefactId                          | groupId                   | scope   | optional | purpose                                                                                                          |
-|------|-------------------------------------|---------------------------|---------|----------|------------------------------------------------------------------------------------------------------------------|
-| 1.   | spring-boot-starter-data-jpa        | org.springframework.boot  |         |          | Starter for using Spring Data JPA with Hibernate|     
-| 2.   | spring-boot-starter-validation      | org.springframework.boot  |         |          | Bean Validation with Hibernate validator                                                                         |
-| 3.   | spring-boot-starter-web             | org.springframework.boot  |         |          | Build web, including RESTful apps using Spring MVC. Uses Tomcat as default embedded conatiner                    |
-| 4.   | flyway-core                         | org.flywaydb              |         |          | Flyway is an open-source database migration tool that strongly favors simplicity and convention over configuration |
-| 5.   | spring-boot-dev-tools               | org.spring.framework.boot | runtime |  true    | Provides fast app restarts, LiveReload and configurations for enhanced developer experience                      |
-| 6.   | h2                                  | com.h2database            | runtime |          |                                                                                                                  | 
-| 7.   | postgresql                          | org.postgresql            | runtime |          |                                                                                                                  | 
-| 8.   | spring-boot-configuration-processor | org.springframework.boot  |         |  true    | Spring Boot Configuration Annotation Processor|
-| 9.   | lombok                              | org.projectlombok         |         |  true    | Java annotation library that helps to reduce boilerplate code                                                    |
-| 10.  | spring-boot-starter-test            | org.springframework.boot  | test    |          | tarter for testing Spring Boot applications with libraries including </em>JUnit Jupiter, Hamcrest and Mockito</em> |  
-| 11.  | junit-jupiter                       | org.testcontainers        | test    |          | Junit Jupiter Extension (Integration test platform/framework) by Testcontainers (read the blog)                  |
-| 12.  | postgresql                          | org.testcontainers        | test    |          | // for loading postgresql container (JDBC support page)                                                          | 
-
+| s.no | artefactId                          | groupId                    | scope   | optional | purpose                                                                                                                             |
+|-----|-------------------------------------|----------------------------|---------|----------|-------------------------------------------------------------------------------------------------------------------------------------|
+| 1.  | spring-boot-starter-data-jpa        | org.springframework.boot   |         |          | Starter for using Spring Data JPA with Hibernate                                                                                    |     
+| 2.  | spring-boot-starter-validation      | org.springframework.boot   |         |          | Bean Validation with Hibernate validator                                                                                            |
+| 3.  | spring-boot-starter-web             | org.springframework.boot   |         |          | Build web, including RESTful apps using Spring MVC. Uses Tomcat as default embedded conatiner                                       |
+| 4.  | flyway-core                         | org.flywaydb               |         |          | Flyway is an open-source database migration tool that strongly favors simplicity and convention over configuration                  |
+| 5.  | spring-boot-dev-tools               | org.spring.framework.boot  | runtime |  true    | Provides fast app restarts, LiveReload and configurations for enhanced developer experience                                         |
+| 6.  | h2                                  | com.h2database             | runtime |          |                                                                                                                                     | 
+| 7.  | postgresql                          | org.postgresql             | runtime |          |                                                                                                                                     | 
+| 8.  | spring-boot-configuration-processor | org.springframework.boot   |         |  true    | Spring Boot Configuration Annotation Processor                                                                                      |
+| 9.  | lombok                              | org.projectlombok          |         |  true    | Java annotation library that helps to reduce boilerplate code                                                                       |
+| 10. | spring-boot-starter-test            | org.springframework.boot   | test    |          | tarter for testing Spring Boot applications with libraries including </em>JUnit Jupiter, Hamcrest and Mockito</em>                  |  
+| 11. | junit-jupiter                       | org.testcontainers         | test    |          | Junit Jupiter Extension (Integration test platform/framework) by Testcontainers (read the blog)                                     |
+| 12. | postgresql                          | org.testcontainers         | test    |          | // for loading postgresql container (JDBC support page)                                                                             | 
+ | 13. | problem-spring-web                  | org.zalando                |         |          | Problem Spring Web is a set of libraries that makes it easy to produce application/problem+json responses from a Spring application | 
 
  plugins
 
