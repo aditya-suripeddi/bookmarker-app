@@ -1,0 +1,39 @@
+version: '3.8'
+services:
+  # dependent services - our application code depends on following services:
+  bookmarker-db:
+    image: postgres:14-alpine
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=appdb
+    ports:
+      - "15432:5432"
+
+ # the application code we develop
+  bookmarker-api:
+    build:
+      context: bookmarker-api # either path to a directory containing Dockerfile or url to git repo
+
+      dockerfile: Dockerfile.layered # notice you did not mention the path ./bookmarker-api/Dockerfile.layered
+                                     # the context setting takes care of this
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+      SPRING_DATASOURCE_DRIVER_CLASS_NAME: org.postgresql.Driver
+
+      # note: the port used in datasource url below
+      #       is the postgres server port inside the container
+
+      # when docker compose runs the bookmarker-db and bookmarker-api
+      # container, they are in the same network and one container
+      # can talk to other, so in datasource url we add the bookmarker-db
+      # as host
+      SPRING_DATASOURCE_URL: jdbc:postgresql://bookmarker-db:5432/appdb
+
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: postgres
+    ports:
+      - "18080:8080"
+    restart: always
+    depends_on:
+      - bookmarker-db

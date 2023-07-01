@@ -199,9 +199,24 @@ In "Constructor Injection & Autowired Revisited" Section
            [Reusing Docker Layers](https://www.baeldung.com/docker-layers-spring-boot) for steps 1 and 2 
            [Spring Boot Maven Plugin | Packing OCI Images](https://docs.spring.io/spring-boot/docs/current/maven-plugin/reference/htmlsingle/#build-image)
            [What is a BuildPack ?](https://youtu.be/d_L_AZyocWA) for steps 3 and 4
-
+           <br><br>
+   
+6. Commands to build and run docker containers from <em>Dockerfile</em> and <em>Dockerfile.layered</em>
+   ```bash
+   
+   # generate latest jar file
+   bookmarker-app/bookmarker-api $ ./mvnw clean package # -DskipTests
+   
+   # build
+   $ docker build -t bookmarker-dockerfile -f ./Dockerfile  .
+   $ docker build -t bookmarker-dockerfile-layered -f ./Dockerfile.layered .
+   
+   #run
+   $ docker run --name bookmarker-api-dockerfile -p 8085:8080 bookmarker-dockerfile
+   $ docker run --name bookmarker-api-dockerfile-layered -p 8086:8080 bookmarker-dockerfile-layered
+   
+   ```
    Command to create docker image using spring boot maven plugin: 
-
    ```bash
    
      # ./mvnw spring-boot:build-image -Dspring-boot.build-image.imageName=<DOCKER-HUB-USERNAME>/bookmarker-api 
@@ -351,8 +366,81 @@ To run the image as a container
               https://www.baeldung.com/spring-data-jpa-projections
 
 
+9. Docker Compose:
+
+   <em>
+    Compose is a tool for defining and running multi-container Docker applications. With Compose, you use
+    a YAML file to configure your application’s services. Then, with a single command, you create and start
+    all the services from your configuration
+   </em>
+
+    <b>Note</b>: You can even use <em> docker compose </em> instead of installing <em>docker-compose</em> 
+   ```bash
+      
+      # 1. (by default) consult docker-compose.yml configuration(s) file,
+      # 2. create container images
+      # 3. run containers
+      $ docker-compose up      
+   
+      # run in detached mode / in the background
+      $ docker-compose up -d   
+      
+      # to see the logs when you bring up containers 
+      # in detached mode (prev command), use the command below
+      # it is similar to tail command
+      $ docker-compose logs -f 
+      
+      
+      # 1. consult container-configs.yml (instead of default docker-compose.yml),
+      # 2. create container images
+      # 3. run containers                         
+      $ docker-compose -f /path/to/container-services-configs.yml up -d
+      # and for logs
+      $ docker-compose -f /path/to/container-services-configs.yml logs -f 
+     
+   
+      # Note: if you have your services configured in two files you can 
+      #       refer both of them in one command
+   
+      $ docker-compose -f /path/to/container-services-configs-1.yml  
+                        -f /path/to/container-services-configs-2.yml up -d   
+      
+      # follow the logs 
+      $ docker-compose -f /path/to/container-services-configs-1.yml  
+                        -f /path/to/container-services-configs-2.yml logs -f   
+      
+   
+      # stop all the containers
+       $ docker-compose -f /path/to/container-services-configs-1.yml  
+                        -f /path/to/container-services-configs-2.yml stop
+      
+      
+      # remove all the containers
+      # -f, --force  Don't ask to confirm removal
+      $ docker-compose -f /path/to/container-services-configs-1.yml  
+                       -f /path/to/container-services-configs-2.yml rm -f   
+      
+
+   
+      # even when you stop and remove the containers
+      # the built images remain, so if you wish to 
+      # rebuild the images after changing source code
+      # use --build option (also observe the logs of command on terminal)
+      #
+      # --build :  Build images before starting containers.
+      # 
+      # also remember to generate new jar file on source code change
+      bookmarker-app/bookmarker-api $ ./mvnw clean package # -DskipTests
+   
+      $ docker-compose up -f /path/to/cotainer-configs.yml up -d --build 
+   
+   ```
+
+10.  Use `run.sh` to run the bookmarker-api backend code in docker containers. 
+     The above `docker-compose` commands are meant for learning and understanding.
 
 <br><br>
+
 #### References:
 <br>
 

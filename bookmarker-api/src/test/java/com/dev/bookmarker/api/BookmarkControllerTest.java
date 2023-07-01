@@ -4,6 +4,7 @@ import com.dev.bookmarker.domain.Bookmark;
 import com.dev.bookmarker.domain.BookmarkRepository;
 import org.hamcrest.CoreMatchers;
 import org.junit.jupiter.api.BeforeEach;
+// import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -40,6 +41,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @TestPropertySource(properties = {
        "spring.datasource.url=jdbc:tc:postgresql:14-alpine:///demo" // demo -> database name
 })
+//@Disabled  // to disable this test
 class BookmarkControllerTest {
 
     @Autowired
