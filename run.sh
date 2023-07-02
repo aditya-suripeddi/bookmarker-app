@@ -16,11 +16,19 @@ function start_dependent_services() {
 
 }
 
+function start_infra() {
+  start_dependent_services
+}
+
 
 function stop_dependent_services() {
   echo "Stopping bookmarker_api dependent services  (docker containers) ...."
   docker-compose -f ${dependent_services} stop
   docker-compose -f ${dependent_services} rm -f   #   -f, --force     Don't ask to confirm removal
+}
+
+function stop_infra() {
+  stop_dependent_services
 }
 
 function start() {
