@@ -31,6 +31,8 @@
    
     # run the app
     $ cd <appName>
+   
+   
     /path/to/appName $ npm start
    ```
 <br>
@@ -66,6 +68,8 @@
      $ npm install react-router-dom@6
     ```
 
+<br>
+
 6. [NextJS](https://nextjs.org/) is a framework built on React (webpage says it is <em>React framework</em>)
    One of the primary reasons people opt for NextJS is server-side rendering.
    React offers client-side rendering which may not work well when building public facing applications
@@ -76,14 +80,20 @@
   ```bash
     # command to create nextjs app with typescript
     $ npx create-next-app <appName> --ts 
+
+
     $ cd <appName>
     /path/to/appName $ npm i bootstrap@5.2.0 
     /path/to/appName $ yarn add axios
+
+
     $ yarn dev # alternatively, npm start may work
   ```
-   follow the choices shown [*here](https://stackoverflow.com/a/76318637) 
 
-  
+   follow the choices shown [*in this stackoverflow link](https://stackoverflow.com/a/76318637) 
+
+<br>
+
 
    ```tsx
         import {NextPage} from "next";
@@ -100,26 +110,56 @@
         export default Home
    ```
 
+
+<br>
+
 7. [React with Typescript Function Components](https://www.digitalocean.com/community/tutorials/react-typescript-with-react#functional-components)
+
+
+<br>
 
 
 8. Data Fetching:
 
-     Server Side Rendering: Client makes call to server to get data 
+     <em>Server Side Rendering</em>: Client makes call to server to get data
+<br>
+     <em>Client Side Rendering</em>: Some pages like a form have no data to begin with
+                                 can be rendered by client right away, only when 
+                                 a user fills the form and submits, it has to pass the 
+                                 data to server
+<br>
+     <em>Static-site generation</em>:A blog with static content (html, css, images, markdown) is a
+                                good example, where there are no updates / write operations 
+                                to a server
 
-     Client Side Rendering: Some pages like a form have no data to begin with
-                            can be rendered by client right away, only when 
-                            a user fills the form and submits, it has to pass the 
-                            data to server
+<br>
+    Read the following links:
+<br>
 
-     Static-site generation:A blog with static content (html, css, images, markdown) is a
-                            good example, where there are no updates / write operations 
-                            to a server
-                               
-    Read the following links: 
-    
-    [Fetching data from the server](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Fetching_data)
-    [Rendering pattern options](https://www.freecodecamp.org/news/rendering-patterns/)
-    [NextJS Data Fetching Methods | geeks](https://www.geeksforgeeks.org/next-js-data-fetching-methods/)
-    [NextJS Data Fetching Docs](https://nextjs.org/docs/pages/building-your-application/data-fetching)
+[Fetching data from the server](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Fetching_data)
+<br>
+[Rendering pattern options](https://www.freecodecamp.org/news/rendering-patterns/)
+<br>
+[NextJS Data Fetching Methods | geeks](https://www.geeksforgeeks.org/next-js-data-fetching-methods/)
+<br>
+[NextJS Data Fetching Docs](https://nextjs.org/docs/pages/building-your-application/data-fetching)
 
+<br>
+
+9. Bootstrap components used:
+<br>
+    a. [Forms](https://getbootstrap.com/docs/5.3/forms/overview/)
+<br>
+    b. [Pagination](https://getbootstrap.com/docs/5.3/components/pagination/)
+<br>
+    c. [NavBar](https://getbootstrap.com/docs/5.3/components/navbar/)
+<br>
+    d. [Card](https://getbootstrap.com/docs/5.3/components/card/)
+<br>
+    e. [Alert](https://getbootstrap.com/docs/5.3/components/alerts/)
+<br>
+    f. [Button](https://getbootstrap.com/docs/5.3/components/buttons/)
+
+<br>
+
+10. [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS)

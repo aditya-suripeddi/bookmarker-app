@@ -472,6 +472,8 @@ To run the image as a container
 
 8. For hibernate related references refer to end of [Spring Boot + Kubernetes Tutorial Series - Part 5 : Using Spring Data JPA DTO Projections
    ](https://www.youtube.com/watch?v=SMn-YezGkdA&list=PLuNxlOYbv61h66_QlcjCEkVAj6RdeplJJ&index=6)
+<br>
+9. [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS)
+<br>
+10. [Markdown Extended Syntax](https://www.markdownguide.org/extended-syntax/)
 
-<br><br>
-9. [Markdown Extended Syntax](https://www.markdownguide.org/extended-syntax/)
