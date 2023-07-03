@@ -40,6 +40,6 @@ public class BookmarksDTO {
             this.setFirst(bookmarkPage.isFirst());
             this.setLast(bookmarkPage.isLast());
             this.setHasNext(bookmarkPage.hasNext());
-            this.setHasPrevious(bookmarkPage.isLast());
+            this.setHasPrevious(bookmarkPage.hasPrevious());
       }
 }

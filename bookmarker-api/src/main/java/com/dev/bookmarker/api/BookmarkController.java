@@ -31,7 +31,7 @@ public class BookmarkController {
      *
      * @return Bookmarks on the requested page with metadata
      */
-    @GetMapping                      // "@RequestParam(name = "page", defaultValue = "1") Integer page" :
+    @GetMapping                   // "@RequestParam(name = "page", defaultValue = "1") Integer page" :
                                      //
                                      //       1. if defaultValue is provided, then the parameter is considered
                                      //         optional or required = false

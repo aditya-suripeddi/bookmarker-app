@@ -10,6 +10,9 @@ import "bootstrap/dist/css/bootstrap.min.css"
 
 // if there is a common layout for your application
 // you can factor it out and put it here in one place
+//
+// in the code below <NavBar/> is factored out and made common over all components
+// of the Single Page Application
 export default function App({ Component, pageProps }: AppProps) {
     return (
         <>

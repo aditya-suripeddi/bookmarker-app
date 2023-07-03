@@ -4,6 +4,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 
 //
@@ -80,7 +81,9 @@ public interface BookmarkRepository extends JpaRepository<Bookmark, Long> {
                WHERE
                       lower(b.title) LIKE lower(concat('%', :query, '%'))
            """)
-    Page<BookmarkDTO> searchBookmarks(String query, Pageable pageable);
+    // to refer named parameters we use @Param:
+    // https://stackoverflow.com/a/66398721
+    Page<BookmarkDTO> searchBookmarks(@Param("query") String query, Pageable pageable);
 
     //
     // intellij ultimate edition (ide) shows suggestions
