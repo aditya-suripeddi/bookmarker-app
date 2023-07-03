@@ -59,8 +59,8 @@
 <br>
 
 
-5.  [reactrouter.com](http://reactrouter.com) website and content is updated from what is shown in 
-    [Intro to ReactJS & NextJS](https://youtu.be/x5KMRG3bt1Q). The command to setup react-router
+5.  [reactrouter.com](http://reactrouter.com) website and content is updated from the time of recording of
+    [Intro to ReactJS & NextJS](https://youtu.be/x5KMRG3bt1Q). The command to set up react-router
     from the [Intro to ReactJS & NextJS](https://youtu.be/x5KMRG3bt1Q) is: 
     ```bash
      $ npm install react-router-dom@6
@@ -76,8 +76,14 @@
   ```bash
     # command to create nextjs app with typescript
     $ npx create-next-app <appName> --ts 
+    $ cd <appName>
+    /path/to/appName $ npm i bootstrap@5.2.0 
+    /path/to/appName $ yarn add axios
+    $ yarn dev # alternatively, npm start may work
   ```
    follow the choices shown [*here](https://stackoverflow.com/a/76318637) 
+
+  
 
    ```tsx
         import {NextPage} from "next";
@@ -86,9 +92,34 @@
              return (
                    <div>
                       <h1>Welcome to Bookmarker UI (NextJS)</h1>
+                      <button className={"btn btn-primary"} /> 
                    </div>
              )
         }
        
         export default Home
    ```
+
+7. [React with Typescript Function Components](https://www.digitalocean.com/community/tutorials/react-typescript-with-react#functional-components)
+
+
+8. Data Fetching:
+
+     Server Side Rendering: Client makes call to server to get data 
+
+     Client Side Rendering: Some pages like a form have no data to begin with
+                            can be rendered by client right away, only when 
+                            a user fills the form and submits, it has to pass the 
+                            data to server
+
+     Static-site generation:A blog with static content (html, css, images, markdown) is a
+                            good example, where there are no updates / write operations 
+                            to a server
+                               
+    Read the following links: 
+    
+    [Fetching data from the server](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Fetching_data)
+    [Rendering pattern options](https://www.freecodecamp.org/news/rendering-patterns/)
+    [NextJS Data Fetching Methods | geeks](https://www.geeksforgeeks.org/next-js-data-fetching-methods/)
+    [NextJS Data Fetching Docs](https://nextjs.org/docs/pages/building-your-application/data-fetching)
+
