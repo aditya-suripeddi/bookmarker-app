@@ -14,4 +14,5 @@ This folder has the backend api for the bookmarks written using spring boot
 
 1.  [SivaLabs Youtube Channel](https://www.youtube.com/c/SivaLabs)
 
-2.  Refer  <em>bookmarker-api/notes/concepts</em> directory for concepts explored
+2.  Refer  <em>bookmarker-app/notes/concepts.md</em> and <br>
+     <em>bookmarker-app/notes/ui-concepts.md</em> directory for concepts explored
