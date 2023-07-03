@@ -1,5 +1,6 @@
 import React from "react";
 import {BookmarksResponse} from "@/services/models";
+import Link from "next/link";
 
 interface PaginationProps {
     bookmarks: BookmarksResponse
@@ -17,7 +18,18 @@ const Pagination: React.FC<PaginationProps> = ({bookmarks}) => {
         <div>
             <nav aria-label="Page navigation">
                 <ul className="pagination justify-content-center">
-
+                    <li className={"page-item " + (bookmarks.hasPrevious ? "" : "disabled")}>
+                        <Link href={firstPage} className="page-link">First Page</Link>
+                    </li>
+                    <li className={"page-item " + (bookmarks.hasPrevious ? "" : "disabled")}>
+                        <Link href={previousPage} className="page-link">Previous</Link>
+                    </li>
+                    <li className={"page-item " + (bookmarks.hasNext ? "" : "disabled")}>
+                        <Link href={nextPage} className="page-link">Next</Link>
+                    </li>
+                    <li className={"page-item " + (bookmarks.hasNext ? "" : "disabled")}>
+                        <Link href={lastPage} className="page-link">Last Page</Link>
+                    </li>
                 </ul>
             </nav>
         </div>
