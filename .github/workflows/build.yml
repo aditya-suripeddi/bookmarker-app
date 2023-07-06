@@ -37,7 +37,7 @@ jobs:
   
 
   build-bookmarker-ui:                # second job we wish to execute
-    name: Build bookmarke-r-ui
+    name: Build bookmarker-ui
     runs-on: ubuntu-latest
     defaults:
       run:
