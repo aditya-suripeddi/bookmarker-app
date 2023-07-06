@@ -21,7 +21,7 @@ jobs:
         uses: actions/setup-java@v3
         with:
           java-version: '17'         # use java 17 version
-          distribution: 'temurin'    # for aws you can set amazon-correto and azure -> microsoft distribution
+          distribution: 'temurin'    # for aws -> amazon-correto & for azure -> microsoft distribution can be set
           cache: maven
 
       - name: Build with Maven       # step3: build with maven
@@ -51,7 +51,7 @@ jobs:
         with:
           node-version: 16
           cache: 'yarn'
-          cache-dependancy-path: bookmarker-ui-nextjs/yarn.lock
+          cache-dependency-path: bookmarker-ui-nextjs/yarn.lock
 
       - name: Install dependencies    # step3: install dependencies
         run: yarn
