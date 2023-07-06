@@ -1,14 +1,14 @@
 1. Tools used
 
-   | framework / library / tool          | purpose                                                                                                                                                         |
-   |-------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-   | NextJS                              | [what is nextjs?](https://nextjs.org/learn/foundations/about-nextjs/what-is-nextjs)                                                                             |
-   | Axios                               |                                                                                                                                                                 |
-   | Bootstrap                           |                                                                                                                                                                 |
-   | yarn                                |                                                                                                                                                                 |
-   | npm                                 |                                                                                                                                                                 |
-   | ReactJS  (explored / not used)      | ([what is nextjs?](https://nextjs.org/learn/foundations/about-nextjs/what-is-nextjs)  and [what is reactjs?](https://legacy.reactjs.org/tutorial/tutorial.html) |
-   | React Router (explored / not used)  |                                                                                                                                                                 |
+   | framework / library / tool          | purpose                                                                                                                                                        |
+   |-------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+   | NextJS                              | [what is nextjs?](https://nextjs.org/learn/foundations/about-nextjs/what-is-nextjs)                                                                            |
+   | Axios                               |                                                                                                                                                                |
+   | Bootstrap                           |                                                                                                                                                                |
+   | yarn                                |                                                                                                                                                                |
+   | npm                                 |                                                                                                                                                                |
+   | ReactJS  (explored / not used)      | [what is nextjs?](https://nextjs.org/learn/foundations/about-nextjs/what-is-nextjs)  and [what is reactjs?](https://legacy.reactjs.org/tutorial/tutorial.html) |
+   | React Router (explored / not used)  |                                                                                                                                                                |
 
 
 
@@ -156,7 +156,7 @@
 
 <br>
 
-11. Data Fetching:
+11. *Data Fetching:
 
 
 ![](server-side-&-client-side-rendering.png)

@@ -11,5 +11,5 @@ meant for learning and practice
 
 1.  [SivaLabs Youtube Channel](https://www.youtube.com/c/SivaLabs)
 
-2.  Refer  <em>bookmarker-app/notes/api-concepts.md</em> and <br>
-    <em>bookmarker-app/notes/ui-concepts.md</em> directory for concepts explored
+2.  Refer  [bookmarker-app/notes/api-concepts.md](https://github.com/aditya-suripeddi/bookmarker-app/blob/master/notes/api-concepts.md) and <br>
+    [bookmarker-app/notes/ui-concepts.md](https://github.com/aditya-suripeddi/bookmarker-app/blob/master/notes/ui-concepts.md) for concepts explored
