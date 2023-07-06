@@ -59,10 +59,10 @@ jobs:
       - name: Build                   # step4: build
         run: yarn build
 
-      - if: ${{ github.ref == 'refs/heads/main' }}
+      - if: ${{ github.ref == 'refs/heads/main' }}   # step5: changes on master get built & pushed to dockerhub
         name: Build and Publish Docker Image
         run: |
-          docker built -t ${{ secrets.DOCKER_USERNAME }}/bookmarker-ui-nextjs .
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/bookmarker-ui-nextjs .
           docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
           docker push ${{ secrets.DOCKER_USERNAME }}/bookmarker-ui-nextjs
           
