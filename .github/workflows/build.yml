@@ -7,7 +7,7 @@ on:
                        #       `**` regex matches any branch on the repository
 
 jobs:
-  build-bookmarker-api:         # first job that we wish to execute
+  build-bookmarker-api:         # JOB-1: build bookmarker API
     name: Build bookmarker-api
     runs-on: ubuntu-latest      # you can pin the version as well like ubuntu-20.04
     defaults:
@@ -36,7 +36,7 @@ jobs:
           docker push ${{ secrets.DOCKER_USERNAME }}/bookmarker-api
   
 
-  build-bookmarker-ui:                # second job we wish to execute
+  build-bookmarker-ui:                # JOB-2: build bookmarker UI
     name: Build bookmarker-ui
     runs-on: ubuntu-latest
     defaults:
