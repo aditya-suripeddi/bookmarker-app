@@ -22,6 +22,7 @@ const Home: NextPage<HomeProps> = (props) => {
     )
 }
 
+// https://nextjs.org/docs/pages/building-your-application/data-fetching/get-server-side-props
 export const getServerSideProps:GetServerSideProps = async(context) => {
 
     const {page = 1, query = ""} = context.query

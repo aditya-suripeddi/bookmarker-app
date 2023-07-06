@@ -67,7 +67,7 @@ In "Constructor Injection & Autowired Revisited" Section
                      handle concerns discussed above
 
 
-<br>                     
+<br>                    
 
 3.  Spring Testing
 <br>
@@ -75,7 +75,7 @@ In "Constructor Injection & Autowired Revisited" Section
  *  The `spring-boot-starter-test`  “Starter” (in the test scope) contains the following provided libraries:
 <br><br>
 
-| library                        | remark                                                                  |
+| framework / library            | purpose                                                                 |
 |--------------------------------|-------------------------------------------------------------------------|
 | JUnit 5                        | The de-facto standard for unit testing Java applications                |
 | Spring Test & Spring Boot Test | Utilities and integration test support for Spring Boot applications.    |
@@ -88,7 +88,7 @@ In "Constructor Injection & Autowired Revisited" Section
 <br>
 
  *  "You don't need Spring to <em>UNIT TEST</em>" (think @SpringBootTest / @ExtendWith(SpringExtension.class) )
-     if you "Create Testable Spring Bean"
+     <br> if you "<b>Create Testable Spring Bean<b>"
 
     [reflectoring.io/unit-testing-spring-boot](https://reflectoring.io/unit-testing-spring-boot/)
 
@@ -199,7 +199,9 @@ In "Constructor Injection & Autowired Revisited" Section
            [Reusing Docker Layers](https://www.baeldung.com/docker-layers-spring-boot) for steps 1 and 2 
            [Spring Boot Maven Plugin | Packing OCI Images](https://docs.spring.io/spring-boot/docs/current/maven-plugin/reference/htmlsingle/#build-image)
            [What is a BuildPack ?](https://youtu.be/d_L_AZyocWA) for steps 3 and 4
-           <br><br>
+
+<br>
+<br>
    
 6. Commands to build and run docker containers from <em>Dockerfile</em> and <em>Dockerfile.layered</em>
    ```bash
@@ -318,8 +320,10 @@ To run the image as a container
   $ docker run -p 8080:8080 aditya0491/bookmarker-api 
 ```
 
-<br><br>
-6. Continuous Integration: 
+<br>
+<br>
+
+7. Continuous Integration: 
              
                   1. Run tests                                        }  on build server
                   2. Code Quality Checks (SonarQube, CheckStyle)      }
@@ -338,9 +342,11 @@ To run the image as a container
                 2. Build docker image and push to docker-hub
 
     Refer comments in <em>bookmarker-api/.github/workflows/build.yml</em>
-   <br><br>
+   
+<br>
+<br>
 
-7. Rest API guidelines overview: 
+8. Rest API guidelines overview: 
  
    ```
          HTTP METHOD            URL                              FUNCIONALITY
@@ -354,8 +360,10 @@ To run the image as a container
      7.    DELETE            /api/bookmarks/{id}                 <- delete by id
    ```
 
+<br>
+<br>
 
-8. Spring DATA JPA Projections: 
+9. Spring DATA JPA Projections: 
 
               More often than not, we don't need all the properties of the returned object 
 
@@ -365,8 +373,11 @@ To run the image as a container
 
               https://www.baeldung.com/spring-data-jpa-projections
 
+<br>
+<br>
 
-9. Docker Compose:
+10. Docker Compose:
+   <br>
 
    <em>
     Compose is a tool for defining and running multi-container Docker applications. With Compose, you use
@@ -435,11 +446,18 @@ To run the image as a container
       $ docker-compose up -f /path/to/cotainer-configs.yml up -d --build 
    
    ```
+   
+<br>
+<br>
 
-10.  Use `run.sh` to run the bookmarker-api backend code in docker containers. 
+
+11. Use `run.sh` to run the bookmarker-api backend code in docker containers. 
      The above `docker-compose` commands are meant for learning and understanding.
 
-<br><br>
+
+<br>
+<br>
+
 
 #### References:
 <br>

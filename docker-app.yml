@@ -1,17 +1,11 @@
+# in intellij you can hover the pointer on keywords and see
+# their documentation / functionality
+
 version: '3.8'
 services:
-  # dependent services - our application code depends on following services:
-  bookmarker-db:
-    image: postgres:14-alpine
-    environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
-      - POSTGRES_DB=appdb
-    ports:
-      - "15432:5432"
-
- # the application code we develop
+# the application code we develop
   bookmarker-api:
+    container_name: bookmarker-api
     build:
       context: bookmarker-api # either path to a directory containing Dockerfile or url to git repo
 
@@ -37,3 +31,14 @@ services:
     restart: always
     depends_on:
       - bookmarker-db
+
+  bookmarker-ui:
+    container_name: bookmarker-ui-nextjs
+    build:
+      context: bookmarker-ui-nextjs
+      dockerfile: Dockerfile
+    ports:
+     - "13000:3000"
+    environment:
+      SERVER_SIDE_BASE_URL: http://bookmarker-api:8080
+      CLIENT_SIDE_BASE_URL: http://localhost:18080

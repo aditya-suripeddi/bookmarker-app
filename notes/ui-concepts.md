@@ -1,4 +1,18 @@
-1. [Single Page Applications](https://en.wikipedia.org/wiki/Single-page_application):
+1. Tools used
+
+   | framework / library / tool          | purpose                                                                                                                                                         |
+   |-------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+   | NextJS                              | [what is nextjs?](https://nextjs.org/learn/foundations/about-nextjs/what-is-nextjs)                                                                             |
+   | Axios                               |                                                                                                                                                                 |
+   | Bootstrap                           |                                                                                                                                                                 |
+   | yarn                                |                                                                                                                                                                 |
+   | npm                                 |                                                                                                                                                                 |
+   | ReactJS  (explored / not used)      | ([what is nextjs?](https://nextjs.org/learn/foundations/about-nextjs/what-is-nextjs)  and [what is reactjs?](https://legacy.reactjs.org/tutorial/tutorial.html) |
+   | React Router (explored / not used)  |                                                                                                                                                                 |
+
+
+
+2. [Single Page Applications](https://en.wikipedia.org/wiki/Single-page_application):
 
 
               a. previously applications used to return entire index.html whenever 
@@ -18,11 +32,11 @@
 
 <br>
 
-2. [Quick Starter: Covers 80% Concepts of React you use DAILY](https://react.dev/learn)
+3. [Quick Starter: Covers 80% Concepts of React you use DAILY](https://react.dev/learn)
 
 <br>
 
-3. React setup and run commands  
+4. React setup and run commands  
 
    ```bash
     
@@ -37,7 +51,7 @@
    ```
 <br>
 
-4. A React component should return a JSX with exactly one root node
+5. A React component should return a JSX with exactly one root node
 
    ```jsx
         // A JSX component should have a single root node
@@ -61,7 +75,7 @@
 <br>
 
 
-5.  [reactrouter.com](http://reactrouter.com) website and content is updated from the time of recording of
+6. [reactrouter.com](http://reactrouter.com) website and content is updated from the time of recording of
     [Intro to ReactJS & NextJS](https://youtu.be/x5KMRG3bt1Q). The command to set up react-router
     from the [Intro to ReactJS & NextJS](https://youtu.be/x5KMRG3bt1Q) is: 
     ```bash
@@ -70,13 +84,15 @@
 
 <br>
 
-6. [NextJS](https://nextjs.org/) is a framework built on React (webpage says it is <em>React framework</em>)
+7. [NextJS](https://nextjs.org/) is a framework built on React (webpage says it is <em>React framework</em>)
    One of the primary reasons people opt for NextJS is server-side rendering.
    React offers client-side rendering which may not work well when building public facing applications
    which need SEO support. With NextJS there are some optimizations that can be leveraged due to server
    side rendering for initial page loads and based on components/page configurations it either performs client-side or
    server side rendering.
-  
+
+<br>  
+
   ```bash
     # command to create nextjs app with typescript
     $ npx create-next-app <appName> --ts 
@@ -113,22 +129,75 @@
 
 <br>
 
-7. [React with Typescript Function Components](https://www.digitalocean.com/community/tutorials/react-typescript-with-react#functional-components)
+8. [React with Typescript Function Components](https://www.digitalocean.com/community/tutorials/react-typescript-with-react#functional-components)
 
 
 <br>
 
 
-8. Data Fetching:
 
-     <em>Server Side Rendering</em>: Client makes call to server to get data
+9. Bootstrap components used:
+   <br>
+   a. [Forms](https://getbootstrap.com/docs/5.3/forms/overview/)
+   <br>
+   b. [Pagination](https://getbootstrap.com/docs/5.3/components/pagination/)
+   <br>
+   c. [NavBar](https://getbootstrap.com/docs/5.3/components/navbar/)
+   <br>
+   d. [Card](https://getbootstrap.com/docs/5.3/components/card/)
+   <br>
+   e. [Alert](https://getbootstrap.com/docs/5.3/components/alerts/)
+   <br>
+   f. [Button](https://getbootstrap.com/docs/5.3/components/buttons/)
+
 <br>
-     <em>Client Side Rendering</em>: Some pages like a form have no data to begin with
-                                 can be rendered by client right away, only when 
-                                 a user fills the form and submits, it has to pass the 
-                                 data to server
+
+10. [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS): Same Origin Policy
+
 <br>
-     <em>Static-site generation</em>:A blog with static content (html, css, images, markdown) is a
+
+11. Data Fetching:
+
+
+![](server-side-&-client-side-rendering.png)
+
+
+When we run `bookmarker-ui-nextjs` server, the browser gets some of the JS/CSS/HTML bundled. When we say client
+we mean this code which is executed by the browser. And when we say server we mean ui-server.
+
+<br>
+
+So `client ->  (JS/CSS/HTML code executed on browser from the device of user)` <br>
+and `server -> bookmarker-ui-nextjs:3000`
+<br>
+<br>
+
+
+The bookmark listing page is server side rendered - meaning when you visit the `/bookmarks` 
+endpoint, the `bookmarker-ui-nextjs` server makes a call to `bookmarker-api` and sends the populated
+`index.html` along with `CSS/JS` in a bundle to browser. So when you open the network tab you do not 
+see any API call being made to `bookmarker-api` from browser.
+
+Note we use the [getServerSideProps()](https://nextjs.org/docs/pages/building-your-application/data-fetching/get-server-side-props)
+function in `index.ts`
+
+![](server-side-rendered-bookmark-listing-page-index-html.png)
+
+Whereas, the `/bookmarks/add` endpoint is client side rendered, meaning the `HTML/CSS/JS` code sent
+as a bundle to the browser on user's device makes a direct API to `bookmark-api` and renders
+the page in the browser without contacting `bookmarker-ui-nextjs`
+
+![](client-side-rendering-add-bookmarks.png)
+
+
+<em>Server Side Rendering</em>: Client makes call to ui-server (which may again make a call to backend) to get data
+<br>
+<em>Client Side Rendering</em>: Some pages like a form have no data to begin with,
+                                can be rendered by client right away. Only when 
+                                a user fills the form and submits, it has to pass the 
+                                data to server
+<br>
+<em>Static-site generation</em>:A blog with static content (html, css, images, markdown) is a
                                 good example, where there are no updates / write operations 
                                 to a server
 
@@ -145,21 +214,3 @@
 [NextJS Data Fetching Docs](https://nextjs.org/docs/pages/building-your-application/data-fetching)
 
 <br>
-
-9. Bootstrap components used:
-<br>
-    a. [Forms](https://getbootstrap.com/docs/5.3/forms/overview/)
-<br>
-    b. [Pagination](https://getbootstrap.com/docs/5.3/components/pagination/)
-<br>
-    c. [NavBar](https://getbootstrap.com/docs/5.3/components/navbar/)
-<br>
-    d. [Card](https://getbootstrap.com/docs/5.3/components/card/)
-<br>
-    e. [Alert](https://getbootstrap.com/docs/5.3/components/alerts/)
-<br>
-    f. [Button](https://getbootstrap.com/docs/5.3/components/buttons/)
-
-<br>
-
-10. [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS)
