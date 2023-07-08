@@ -496,6 +496,92 @@ Use `run.sh` to run the following services in docker containers in the <em>order
 <br>
 <br>
 
+###### Deployment Using k8s
+
+[kubernetes-architecture-explained](https://devopscube.com/kubernetes-architecture-explained/) is very well written
+blog with good illustrations that explains at high level how k8s works and the key components. 
+
+The notes below is for quick introduction.
+
+
+<u> Architecture & Components Overview: </u>
+<br>
+
+With kubernetes you <em>define deployment</em> code in a cluster.<br>
+
+A cluster consists of a set of worker machines (vm instance or physical machine) 
+called <em>Nodes</em> which run containerized applications.<em>Every cluster has at least one worker node</em>.
+
+<em>Pod</em> represents a set of running containers with shared storage and network resources.<br>
+It is smallest deployable unit.
+
+<em>Control Plane</em> is the container orchestration layer that exposes API and interfaces to <em>define, deploy
+and manage the lifecycle of containers</em>. The worker node(s) host run <em>pods</em>. 
+The <em>control plane</em> manages pods and worker nodes, it maintains the cluster in desired state.
+
+In production environments, control plane usually runs across multiple computers and a cluster usually <br>
+runs multiple nodes, providing fault-tolerance and high availability. A cluster can have more than one worker 
+
+The control plane and worker nodes in turn have k8s components. 
+
+This control plane layer is composed of (but not restricted to) following components:<br>
+* etcd: 
+* API Server
+* Scheduler
+* Controller Manager
+* Cloud Controller Manager
+<br>
+These control plane components can be run as traditional operating system services (daemons) or as containers.<br>
+The hosts running these components were historically called masters.
+
+Each worker node has two k8s components: kubelet and kube-proxy
+
+
+K8s has following key object types:
+* Pods
+* ReplicaSets
+* Deployments
+* Services
+* ConfigMaps
+* Secretsz
+* PersistanceVolumes
+* PersistanceVolumeClaims
+* IngressController
+
+<br>
+<br>
+
+<u> Diagrams / Images </u>
+<br>
+
+* [*DevOpsCube](https://devopscube.com/wp-content/uploads/2022/10/kube-api-server.drawio-1.png)
+* [Visual Map of k8s Deployment](https://opensource.com/sites/default/files/uploads/pod-chain_0.png)
+* [Aquasec](https://www.aquasec.com/wp-content/uploads/2020/11/Kubernetes-101-Architecture-Diagram-768x555.jpg)
+
+<u> Also Refer </u>
+<br>
+
+* [**Kubernetes Architecture Explained](https://devopscube.com/kubernetes-architecture-explained/)
+* [Docs](https://kubernetes.io/docs/concepts/overview/components/)
+* [A Visual Map of Kubernetes Deployment](https://opensource.com/article/22/3/visual-map-kubernetes-deployment)
+* [Core components explained](https://spot.io/resources/kubernetes-architecture/11-core-components-explained/)
+
+<u> Practical usage of k8s </u>
+
+* [Architecting Kubernetes clusters — how many should you have?](https://learnk8s.io/how-many-clusters)("The Problem" section)
+
+
+<br>
+<br>
+
+<u> k8s Resources Types </u>
+
+
+
+
+<br>
+<br>
+
 #### References:
 
 <br>
