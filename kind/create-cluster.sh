@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# NOTE: run the script after changing to parent directory of script:
+#       $ cd /bookmarker-app/kind
+#       as kind create cluster command below needs to read kind-config.yml
+
 printf "Initializing k8s cluster with kind ...."
 
 kind create cluster --config kind-config.yml
