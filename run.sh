@@ -5,7 +5,7 @@ declare bookmarker_api=docker-app.yml
 
 function build_api() {
     cd bookmarker-api
-    ./mvnw clean package -DskipTests -Drun.jvmArguments="-Dspring.profiles.active=local"
+    ./mvnw clean package -DskipTests
     cd ..
 }
 
