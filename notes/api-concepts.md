@@ -537,11 +537,14 @@ The hosts running these components were historically called masters.
 Each worker node has two k8s components: kubelet and kube-proxy
 
 
-K8s has following key object types:
-* Pods
-* ReplicaSets
-* Deployments
-* Services
+K8s has following key [resources / object types](https://devopscube.com/kubernetes-objects-resources/):
+* Pods ( are ephemeral, they are created / destroyed / accidentally stop)
+* ReplicaSets: n (replication factor) number of pod instances you expect the cluster to support 
+* Deployments: under the hood uses ReplicaSets to match the current deployment state in 
+               the desired state. Keeps track of rollout history (versions of deployment changes) and allows you
+               to undo / revert to a previous rollout version of the deployment
+
+* Services: 
 * ConfigMaps
 * Secretsz
 * PersistanceVolumes
@@ -562,6 +565,7 @@ K8s has following key object types:
 <br>
 
 * [**Kubernetes Architecture Explained](https://devopscube.com/kubernetes-architecture-explained/)
+* [K8s Objects vs Resources vs Custom Resources](https://devopscube.com/kubernetes-objects-resources/)
 * [Docs](https://kubernetes.io/docs/concepts/overview/components/)
 * [A Visual Map of Kubernetes Deployment](https://opensource.com/article/22/3/visual-map-kubernetes-deployment)
 * [Core components explained](https://spot.io/resources/kubernetes-architecture/11-core-components-explained/)
@@ -571,16 +575,82 @@ K8s has following key object types:
 * [Architecting Kubernetes clusters — how many should you have?](https://learnk8s.io/how-many-clusters)("The Problem" section)
 
 
+
+###### k8s (commands, miscellaneous)
+
+For syntax of a deployment.yaml refer [deployment-sample-annotated-for-learning.yaml](https://github.com/aditya-suripeddi/bookmarker-app/blob/master/notes/deployment-sample-annotated-for-learning.yaml)
+
+
+```bash
+
+ $ cd bookmarker-app/kind
+ 
+ $ ./create-cluster.sh  
+ 
+ $ kubectl run bookmark-api --image=aditya0491/bookmarker-api --port=8080   # create pod 
+
+ $ kubectl get pods  # query pods
+  
+ $ kubectl logs bookmark-api -f # follow logs from pod with name bookmark-api
+ 
+ $ kubectl exec -it bookmark-api -- /bin/sh  # access the shell inside the pod
+ 
+ $ kubectl get all # query all k8s resources, try kubectl get --help for useful examples  
+ 
+ $ kubectl describe pods bookmark-api # pod status and metadata
+ 
+ $ kubectl delete pods bookmark-api
+ 
+  
+ $ kubectl run bookmark-api --image=aditya0491/bookmarker-api --port=8080 --dry-run=client -o yaml > pod.yml
+ 
+ # make changes to pod.yml and 
+ $ kubectl apply -f ./k8s/pod.yml   # create pod with specification defined in pod.yml
+ 
+ $ kubectl delete -f ./k8s/pod.yml  # delete pod specified in pod.yml
+ 
+ 
+ $ kubectl create deployment bookmark-api \
+             --image=aditya0491/bookmarker-api # notice: replica set also gets created as deployment uses replicaset
+ 
+ # not only the deployment, other resources created along with it are also deleted
+ $ kubectl delete deployment bookmark-api 
+ 
+ $ kubectl create deployment bookmark-api  \
+                 --image=aditya0491/bookmarker-api  \
+                  --dry-run=client  \
+                  -o yaml > deployment.yml
+
+ 
+ $ kubectl apply -f ./k8s/deployment.yml 
+ $ kubectl delete -f ./k8s/deployment.yml 
+ 
+ # update replicas and run below command to apply the changes
+ $ kubectl apply -f ./k8s/deployment.yml
+ # alternatively, 
+ $ kubectl scale deployment bookmark-api --replicas=3
+
+ # (imp for prod deployments) See the rollout history of a deployment
+ # note: there are also commands to undo or revert to a previous 
+ #       revision of deployment rollout
+ $ kubectl rollout history deployment bookmark-api 
+ 
+ # to apply all deployments in directory 
+ $ kubectl apply -f ./k8s    # ./k8s/1-configmap.yaml, ./k8s/1-postgresdb.yaml and ./k8s/2-bookmarker-api.yaml
+ 
+ # (imp & useful) to delete all resources created 
+ #  from a directory of resource specifications
+ $ kubectl delete -f ./k8s   # ./k8s/1-configmap.yaml, ./k8s/1-postgresdb.yaml and ./k8s/2-bookmarker-api.yaml 
+ 
+ # secrets yaml dry run
+ $ kubectl create secret generic bookmarker-secrets --from-literal=postgres_username=postgres --dry-run=client -o yaml  
+
+ 
+```
+
 <br>
 <br>
 
-<u> k8s Resources Types </u>
-
-
-
-
-<br>
-<br>
 
 #### References:
 
