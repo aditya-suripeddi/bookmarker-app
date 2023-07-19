@@ -99,14 +99,15 @@ So this would also work.
 
 <br>
 
-    1. Construction injection allows you to create dependencies as final <br>
-    2. Supports immutable objects <br>
-    3. Makes setting up POJOs for unit-tests easier
+    1. IoC makes sure all arguments are available before passing to constructor for instantiation (preventing NullPointerExceptions)
+    2. Supports immutable objects ( with constructor injection your dependencies can be marked final )
+    3. Makes setting up (injecting mock dependencies) easier for unit-testing
 <br>
 
 <u>References:</u>
-* [Create Testable Bean](https://reflectoring.io/unit-testing-spring-boot/)
+* [Create Testable Spring Bean](https://reflectoring.io/unit-testing-spring-boot/)
 * [Stackoverflow: Constructor injection, Setter injection and Injection by reflection (autowired)](https://stackoverflow.com/a/39892204)
+* [Why constructor injection?](https://reflectoring.io/constructor-injection/)
 * [Stackoverflow: Spring Autowire on properties vs constructor](https://stackoverflow.com/a/40620318)
 * [Why field injection is evil?](https://odrotbohm.de/2013/11/why-field-injection-is-evil/)
 
@@ -238,7 +239,7 @@ The `spring-boot-starter-test`  “Starter” (in the test scope) contains the f
                 1. Run tests
                 2. Build docker image and push to docker-hub
 
-    Refer comments in <em>bookmarker-api/.github/workflows/build.yml</em>
+    Refer comments in bookmarker-api/.github/workflows/build.yml
 
 <br>
 <br>
@@ -266,6 +267,7 @@ which does not require developer to write Dockerfile
 * [Reusing Docker Layers](https://www.baeldung.com/docker-layers-spring-boot) for steps 1 and 2
 * [Spring Boot Maven Plugin | Packing OCI Images](https://docs.spring.io/spring-boot/docs/current/maven-plugin/reference/htmlsingle/#build-image)
 * [What is a BuildPack ?](https://youtu.be/d_L_AZyocWA) for steps 3 and 4
+* [BuildPack in One Image](https://github.com/aditya-suripeddi/bookmarker-app/blob/master/notes/buildPacks-create-container-images-from-source-code-without-asking-for-dockerfile-from-developer.png)
 
 <br>
 
@@ -479,7 +481,7 @@ The <b>reason we use this tool is for easier (setup of dependent services like d
 <br>
 <br>
 
-###### run.sh
+#### run.sh
 
 <br>
 
@@ -496,7 +498,7 @@ Use `run.sh` to run the following services in docker containers in the <em>order
 <br>
 <br>
 
-###### Deployment Using k8s
+#### Deployment Using k8s
 
 [kubernetes-architecture-explained](https://devopscube.com/kubernetes-architecture-explained/) is very well written
 blog with good illustrations that explains at high level how k8s works and the key components. 
@@ -504,7 +506,7 @@ blog with good illustrations that explains at high level how k8s works and the k
 The notes below is for quick introduction.
 
 
-<u> Architecture & Components Overview: </u>
+<b> Architecture & Components Overview: </b>
 <br>
 
 With kubernetes you <em>define deployment</em> code in a cluster.<br>
@@ -576,7 +578,7 @@ K8s has following key [resources / object types](https://devopscube.com/kubernet
 
 
 
-###### k8s (commands, miscellaneous)
+#### k8s (commands, miscellaneous)
 
 For syntax of a deployment.yaml refer [deployment-sample-annotated-for-learning.yaml](https://github.com/aditya-suripeddi/bookmarker-app/blob/master/notes/deployment-sample-annotated-for-learning.yaml)
 

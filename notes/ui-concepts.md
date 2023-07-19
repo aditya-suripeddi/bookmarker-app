@@ -11,6 +11,7 @@
    | React Router (explored / not used)  |                                                                                                                                                                |
 
 
+<br/>
 
 2. [Single Page Applications](https://en.wikipedia.org/wiki/Single-page_application):
 
@@ -202,15 +203,11 @@ the page in the browser without contacting `bookmarker-ui-nextjs`
                                 to a server
 
 <br>
-    Read the following links:
-<br>
 
-[Fetching data from the server](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Fetching_data)
-<br>
-[Rendering pattern options](https://www.freecodecamp.org/news/rendering-patterns/)
-<br>
-[NextJS Data Fetching Methods | geeks](https://www.geeksforgeeks.org/next-js-data-fetching-methods/)
-<br>
-[NextJS Data Fetching Docs](https://nextjs.org/docs/pages/building-your-application/data-fetching)
+<em>Read the following links:</em> <br/>
 
-<br>
+* [Fetching data from the server](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Fetching_data)
+* [Rendering pattern options](https://www.freecodecamp.org/news/rendering-patterns/)
+* [NextJS Data Fetching Methods | geeks](https://www.geeksforgeeks.org/next-js-data-fetching-methods/)
+* [NextJS Data Fetching Docs](https://nextjs.org/docs/pages/building-your-application/data-fetching)
+

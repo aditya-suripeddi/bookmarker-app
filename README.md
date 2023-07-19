@@ -4,6 +4,10 @@ This repository is hands-on implementation of Bookmarker application from
 [SpringBoot + Kubernetes Playlist](https://www.youtube.com/playlist?list=PLuNxlOYbv61h66_QlcjCEkVAj6RdeplJJ) <br/>
 by [Siva](https://www.sivalabs.in/about-me/) meant for learning and practice <br/>
 
+### Screenshot
+
+![](screenshots/application-screenshot.gif)
+
 
 ### Technologies
 
@@ -84,10 +88,6 @@ To remove the cluster:
   Deleting cluster "sb-k8s-series" ...
   
 ```
-
-### Screenshot
-
-![](screenshots/application-screenshot.gif)
 
 
 ### References
