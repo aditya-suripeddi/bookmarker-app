@@ -546,7 +546,7 @@ K8s has following key [resources / object types](https://devopscube.com/kubernet
 
 * Services: 
 * ConfigMaps
-* Secretsz
+* Secrets
 * PersistanceVolumes
 * PersistanceVolumeClaims
 * IngressController

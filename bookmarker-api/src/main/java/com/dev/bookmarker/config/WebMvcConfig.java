@@ -10,7 +10,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
     // CORS: https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS
     @Override
     public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/api/**") // for calls made to endpoints starting with /api/**
+        registry.addMapping("/api/**") // For client reqs on endpoints with prefix /api/**
                 .allowedMethods("*") // Allow all HTTP Methods
                 .allowedHeaders("*")  // Allow all headers
                 .allowedOriginPatterns("*"); // if your api allows calls only from a particular domain
