@@ -72,7 +72,9 @@ for <em>deployment</em>:
 ```
 Go to [localhost:80](http://localhost:80)  or [localhost](http://localhost)
 
-Install [lens](https://k8slens.dev/desktop.html) and inspect the cluster using
+Install [lens](https://k8slens.dev/desktop.html) to inspect the cluster.
+
+To remove the cluster:
 
 ```bash  
   
