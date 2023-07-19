@@ -98,5 +98,5 @@ Install [lens](https://k8slens.dev/desktop.html) and inspect the cluster using
 
 1.  [SivaLabs Youtube Channel](https://www.youtube.com/c/SivaLabs)
 
-2.  <em>*Refer</em>  [bookmarker-app/notes/api-concepts.md](https://github.com/aditya-suripeddi/bookmarker-app/blob/master/notes/api-concepts.md) and <br>
+2.  *<em>Refer</em>  [bookmarker-app/notes/api-concepts.md](https://github.com/aditya-suripeddi/bookmarker-app/blob/master/notes/api-concepts.md) and <br>
     [bookmarker-app/notes/ui-concepts.md](https://github.com/aditya-suripeddi/bookmarker-app/blob/master/notes/ui-concepts.md) for concepts explored
