@@ -12,7 +12,7 @@ The code has following modules: <br/>
 <b>bookmarker-api</b>: [Spring-Boot](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/), [Spring-Data-Jpa](https://spring.io/projects/spring-data-jpa), [Flyway](https://documentation.red-gate.com/fd/why-database-migrations-184127574.html), [testcontainers](https://java.testcontainers.org/), [jib-maven-plugin](https://github.com/GoogleContainerTools/jib/tree/master/jib-maven-plugin), [Postgresql](https://www.postgresql.org/) <br/>
 <b>bookmarker-ui-nextjs</b>: [ReactJs](https://react.dev/) with [NextJs](https://nextjs.org/), [Bootstrap](https://getbootstrap.com/) <br/>
 <br/>
-for <em>deployment</em>: [Github Actions for CI/CD](https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions), [docker-compose (for local development)](https://docs.docker.com/compose/),  [kind (for creating a local k8s cluster and deploying in it)](https://kind.sigs.k8s.io/) and [lens (for accessing k8s cluster)](https://k8slens.dev/desktop.html)<br/>
+for <em>deployment</em>: [Github Actions for CI/CD](https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions), [docker-compose (for local development)](https://docs.docker.com/compose/),  [kind (for creating a local k8s cluster and deploying in it)](https://kind.sigs.k8s.io/) and [lens (for inspecting k8s cluster)](https://k8slens.dev/desktop.html)<br/>
 
 ### Running locally
 
@@ -46,6 +46,8 @@ for <em>deployment</em>: [Github Actions for CI/CD](https://docs.github.com/en/a
 ### Running on k8s
 
 ```bash
+
+  # make sure you install kind
   $ cd bookmarker-api/kind
   
   [/path/to/bookmarker-api/kind] $ chmod u+x create-cluster.sh && chmod destroy-cluster.sh
@@ -59,6 +61,8 @@ for <em>deployment</em>: [Github Actions for CI/CD](https://docs.github.com/en/a
    
 ```
 Go to [localhost:80](http://localhost:80)  or [localhost](http://localhost)
+
+Install [lens](https://k8slens.dev/desktop.html) and inspect the cluster using
 
 ```bash  
   
