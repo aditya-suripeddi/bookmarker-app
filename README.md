@@ -24,7 +24,7 @@ The code has following modules: <br/>
 <br/>
 
 for <em>deployment</em>: 
-   * [GitHub Actions for CI/CD](https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions): checkout [bookmarker-app/.github/worflows/build.yml](https://github.com/aditya-suripeddi/bookmarker-app/blob/master/.github/workflows/build.yml)
+   * [GitHub Actions for CI/CD - build docker images and push to dockerhub](https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions): checkout [bookmarker-app/.github/worflows/build.yml](https://github.com/aditya-suripeddi/bookmarker-app/blob/master/.github/workflows/build.yml)
    * [docker-compose (for local development)](https://docs.docker.com/compose/)
    * [kind (for creating a local k8s cluster and deploying in it)](https://kind.sigs.k8s.io/) and
    * [lens (for inspecting k8s cluster)](https://k8slens.dev/desktop.html)<br/>
