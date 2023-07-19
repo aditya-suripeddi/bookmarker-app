@@ -87,7 +87,7 @@ To remove the cluster:
 
 ### Screenshot
 
-<img  src="https://github.com/aditya-suripeddi/bookmarker-app/blob/master/screenshots/application-screenshot.gif" />
+![](screenshots/application-screenshot.gif)
 
 
 ### References
