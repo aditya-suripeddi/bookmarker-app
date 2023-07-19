@@ -76,7 +76,6 @@ Install [lens](https://k8slens.dev/desktop.html) and inspect the cluster using
 
 ```bash  
   
-  [/path/to/bookmarker-api/kind] $ ./destroy-cluster.sh
  
   [/path/to/bookmarker-api/kind] $ ./destroy-cluster.sh
   Destroying k8s cluster ...
