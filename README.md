@@ -67,7 +67,7 @@ for <em>deployment</em>:
     :
   "Your cluster is ready to use"
   
-  [/path/to/bookmarker-api/kind] $ kubectl apply -f ../k8s/ .
+  [/path/to/bookmarker-api/kind] $ kubectl apply -f ../k8s/
    
 ```
 Go to [localhost:80](http://localhost:80)  or [localhost](http://localhost)
