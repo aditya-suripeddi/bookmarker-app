@@ -37,9 +37,6 @@ for <em>deployment</em>:
   
   $ cd bookmarker-api # go to root directory 
   
-  # make run.sh executable
-  [/path/to/bookmarker-api] $ chmod u+x run.sh
-  
   [/path/to/bookmarker-api] $ ./run.sh  # wait for docker runtime to build and run the containers  
 ```
 
@@ -64,8 +61,6 @@ for <em>deployment</em>:
 
   # make sure you install kind
   $ cd bookmarker-api/kind
-  
-  [/path/to/bookmarker-api/kind] $ chmod u+x create-cluster.sh && chmod destroy-cluster.sh
   
   [/path/to/bookmarker-api/kind] $ ./create-cluster.sh
     :
