@@ -91,7 +91,7 @@ Install [lens](https://k8slens.dev/desktop.html) and inspect the cluster using
 
 ### Screenshot
 
-<img  src="https://github.com/aditya-suripeddi/bookmarker-app/blob/master/screenshots/application-screenshot.gif" />
+<img  src="https://github.com/aditya-suripeddi/bookmarker-app/blob/master/screenshots/application-screenshot.gif" width="1920" height="1080" />
 
 
 ### References
