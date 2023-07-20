@@ -4,6 +4,13 @@ This repository is hands-on implementation of Bookmarker application from
 [SpringBoot + Kubernetes Playlist](https://www.youtube.com/playlist?list=PLuNxlOYbv61h66_QlcjCEkVAj6RdeplJJ) <br/>
 by [Siva](https://www.sivalabs.in/about-me/) meant for learning and practice <br/>
 
+The application functionality is: 
+   * Show bookmarks (max 10 per page)
+   * Support adding a new bookmark with title and url (url is not allowed to be empty)
+   * Search / Filter bookmarks based on title of the bookmark
+   * Support basic pagination: jump to previous page, next page, first page and last page of bookmarks
+
+
 ### Screenshot
 
 ![](screenshots/application-screenshot.gif)
@@ -66,10 +73,10 @@ for <em>deployment</em>:
   # make sure you install kind
   $ cd bookmarker-api/kind
   
-  [/path/to/bookmarker-api/kind] $ ./create-cluster.sh
-    :
-    :
-  "Your cluster is ready to use"
+  [/path/to/bookmarker-api/kind] $ ./create-cluster.sh  # wait for kind to spin up `sb-k8s-series` cluster 
+         :
+         :
+   "Your cluster is ready to use"
   
   [/path/to/bookmarker-api/kind] $ kubectl apply -f ../k8s/
    
@@ -83,12 +90,22 @@ To remove the cluster:
 ```bash  
   
  
+  [/path/to/bookmarker-api/kind] $  kubectl delete -f ../k8s/
+  
   [/path/to/bookmarker-api/kind] $ ./destroy-cluster.sh
   Destroying k8s cluster ...
   Deleting cluster "sb-k8s-series" ...
   
+  # remove images with tag <none> ( dangling images )
+  # https://stackoverflow.com/questions/33913020/docker-remove-none-tag-images
+  # https://stackoverflow.com/a/50040332
+  [/path/to/bookmarker-api/kind] $ docker images -a | grep none | awk '{ print $3; }' | xargs docker rmi
 ```
 
+### Future Work
+
+* Handle error responses returned by <em>bookmarker-api</em> on <em>bookmarker-ui-nextjs</em> 
+* Write unit tests for </em>bookmarker-ui-nextjs</em>
 
 ### References
 
