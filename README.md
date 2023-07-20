@@ -6,7 +6,7 @@ by [Siva](https://www.sivalabs.in/about-me/) meant for learning and practice <br
 
 The application functionality is: 
    * Show bookmarks (max 10 per page)
-   * Support adding a new bookmark with title and url (url is not allowed to be empty)
+   * Support adding a new bookmark with title and url
    * Search / Filter bookmarks based on title of the bookmark
    * Support basic pagination: jump to previous page, next page, first page and last page of bookmarks
 
